@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Spitfire_Movement : MonoBehaviour
 {
-
+    [Header("kdkf")]
+    [Tooltip("Move shift left and right")]
     [SerializeField] float xMovSp = 10f;
     [SerializeField] float yMovSp = 10f;
     [SerializeField] float zMovSp = 10f;
+    [Tooltip("Min and max movement (x,y)")]
     [SerializeField] float xMin = -10f;
     [SerializeField] float xMax = 10f;
     [SerializeField] float yMin = -7f;
@@ -32,6 +34,7 @@ public class Spitfire_Movement : MonoBehaviour
 
     private void ProcessTranslation()
     {
+        
         float xThrow = Input.GetAxis("Yaw");
         float yThrow = Input.GetAxis("Pitch");
         float zThrow = Input.GetAxis("Roll");
