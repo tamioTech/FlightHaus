@@ -20,10 +20,11 @@ public class Spitfire_Movement : MonoBehaviour
     [SerializeField] float pitchMultiplier = 1f;
     [SerializeField] float yawMultiplier = 1f;
 
+    public bool isDead;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -34,6 +35,7 @@ public class Spitfire_Movement : MonoBehaviour
 
     private void ProcessTranslation()
     {
+        if(isDead) { return; }
         
         float xThrow = Input.GetAxis("Yaw");
         float yThrow = Input.GetAxis("Pitch");
