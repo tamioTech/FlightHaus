@@ -7,7 +7,7 @@ public class Collision_Handler : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         print($"{this.name} collided with {collision.gameObject.name}");
-        FindObjectOfType<BodyExploded>().gameObject.SetActive(false);
+        FindObjectOfType<BodyExploded>().gameObject.SetActive(true);
         FindObjectOfType<Level_Handler>().ReloadLevel();
     }
 
