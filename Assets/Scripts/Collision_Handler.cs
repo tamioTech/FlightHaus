@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Collision_Handler : MonoBehaviour
 {
+    [SerializeField] GameObject explosionFX;
+    [SerializeField] GameObject planeBody;
+
+    private void Start()
+    {
+        explosionFX.SetActive(false);
+        planeBody.SetActive(true);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         print($"{this.name} collided with {collision.gameObject.name}");
-        FindObjectOfType<BodyExploded>().gameObject.SetActive(true);
+        explosionFX.SetActive(true);
+        planeBody.SetActive(false); 
         FindObjectOfType<Level_Handler>().ReloadLevel();
     }
 
