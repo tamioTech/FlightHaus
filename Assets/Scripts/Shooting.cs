@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 
     [SerializeField] ParticleSystem leftPSys;
     [SerializeField] ParticleSystem rightPSys;
+    [SerializeField] AudioClip gunnerSound;
 
     private void Start()
     {
@@ -32,6 +33,8 @@ public class Shooting : MonoBehaviour
         {
             leftPSys.Play();
             rightPSys.Play();
+            AudioSource.PlayClipAtPoint(gunnerSound, transform.position);
+            
         }
     }
 }
