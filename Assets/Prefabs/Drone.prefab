@@ -138,6 +138,10 @@ MonoBehaviour:
   deathStarHealth: 100
   droneHealth: 2
   deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
+  deathVFXDuration: 1
+  parent: {fileID: 0}
+  droneExplosionSound: {fileID: 8300000, guid: 34d41335d974fdc4f949c1d029db8e2d, type: 3}
+  deathStarExplosionSound: {fileID: 8300000, guid: a55cd03a41e2eac4992c0fb94f78b01b, type: 3}
 --- !u!136 &3184391604098123100
 CapsuleCollider:
   m_ObjectHideFlags: 0
