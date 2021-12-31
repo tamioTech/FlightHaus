@@ -149,9 +149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathStarHealth: 20
-  droneHealth: 2
+  droneHealth: 5
+  droneMaxHealth: 5
   deathVFXDuration: 1
   deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   parent: {fileID: 0}
   droneExplosionSound: {fileID: 0}
   deathStarExplosionSound: {fileID: 8300000, guid: a55cd03a41e2eac4992c0fb94f78b01b, type: 3}
+  droneHitSound: {fileID: 0}
+  deathStarHitSound: {fileID: 8300000, guid: 11d81473c6a124b4a97bc8ae66488214, type: 3}
+  hitVFXobj: {fileID: 5970974337334378768, guid: eb3d8493f1e5d4c82acc164b034aea45, type: 3}

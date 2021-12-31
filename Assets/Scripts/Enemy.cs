@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int deathStarHealth = 20;
-    [SerializeField] int droneHealth = 2;
+    [SerializeField] public float deathStarHealth = 20f;
+    [SerializeField] public float droneHealth = 5f;
+    [SerializeField] public float droneMaxHealth = 5f;
     [SerializeField] float deathVFXDuration = 1.0f;
     [SerializeField] GameObject deathVFX;
     [SerializeField] Transform parent;
@@ -13,6 +14,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip deathStarExplosionSound;
     [SerializeField] AudioClip droneHitSound;
     [SerializeField] AudioClip deathStarHitSound;
+    [SerializeField] GameObject hitVFXobj;
+
+
 
     int hitPts = 1;
     int dronePts = 3;
@@ -25,6 +29,7 @@ public class Enemy : MonoBehaviour
     {
        hud = FindObjectOfType<Display>();
        mainCamera = Camera.main;
+       
     }
 
     private void OnParticleCollision(GameObject other)
@@ -50,6 +55,8 @@ public class Enemy : MonoBehaviour
         droneHealth--;
         hud.AddToScore(hitPts);
         AudioSource.PlayClipAtPoint(droneHitSound, Camera.main.transform.position);
+        HitVFX();
+        FindObjectOfType<Drone>().ChangeColor();
         if (droneHealth <= 0)
         {
             AudioSource.PlayClipAtPoint(droneExplosionSound, Camera.main.transform.position);
@@ -61,11 +68,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    
+
     private void ProcessDeathStarHit()
     {
         deathStarHealth--;
         hud.AddToScore(hitPts);
         AudioSource.PlayClipAtPoint(deathStarHitSound, Camera.main.transform.position);
+        //HitVFX();
         if (deathStarHealth <= 0)
         {
             Instantiate(deathVFX, transform.position, Quaternion.identity);
@@ -75,5 +85,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+    private void HitVFX()
+    {
+        GameObject hitVFX = Instantiate(hitVFXobj, transform.position, Quaternion.identity);
+        hitVFX.transform.parent = parent;
+        Destroy(hitVFX, deathVFXDuration);
+    }
 }
