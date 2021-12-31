@@ -13,7 +13,6 @@ public class Display : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Text scoreText;
         scoreText = GetComponent<Text>();
         UpdateDisplay();
         score = 0;
@@ -29,7 +28,6 @@ public class Display : MonoBehaviour
     {
         
         score += pts;
-        print("score: " + score);
         UpdateDisplay();
     }
 

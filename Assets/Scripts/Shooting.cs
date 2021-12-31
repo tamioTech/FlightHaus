@@ -37,9 +37,10 @@ public class Shooting : MonoBehaviour
 
         if(Input.GetKey("space"))
         {
+            print("spacePressed");
             leftPSys.Play();
             rightPSys.Play();
-            PlayGunnerSound();
+            //PlayGunnerSound();
 
         }
     }

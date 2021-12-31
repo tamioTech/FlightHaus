@@ -6,25 +6,29 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] int deathStarHealth = 20;
     [SerializeField] int droneHealth = 2;
-    [SerializeField] GameObject deathVFX;
     [SerializeField] float deathVFXDuration = 1.0f;
+    [SerializeField] GameObject deathVFX;
     [SerializeField] Transform parent;
-    //[SerializeField] AudioClip droneExplosionSound;
-    //[SerializeField] AudioClip deathStarExplosionSound;
+    [SerializeField] AudioClip droneExplosionSound;
+    [SerializeField] AudioClip deathStarExplosionSound;
+    [SerializeField] AudioClip droneHitSound;
+    [SerializeField] AudioClip deathStarHitSound;
 
     int hitPts = 1;
     int dronePts = 3;
     int deathStarPts = 50;
+
     Display hud;
+    Camera mainCamera;
 
     private void Start()
     {
-        hud = FindObjectOfType<Display>();
+       hud = FindObjectOfType<Display>();
+       mainCamera = Camera.main;
     }
 
     private void OnParticleCollision(GameObject other)
-    {
-
+    {   
         switch (gameObject.tag)
         {
             case "Drone":
@@ -39,31 +43,16 @@ public class Enemy : MonoBehaviour
                 print("nothing happens");
                 break;
         }
-
-    }
-
-    private void ProcessDeathStarHit()
-    {
-        deathStarHealth--;
-        hud.AddToScore(hitPts);
-        if (deathStarHealth <= 0)
-        {
-            //AudioSource.PlayClipAtPoint(deathStarExplosionSound, Camera.main.transform.position);
-            Instantiate(deathVFX, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            hud.AddToScore(deathStarPts);
-        }
     }
 
     private void ProcessDroneHit()
     {
         droneHealth--;
-        //hud.AddToScore(hitPts);
-        //FindObjectOfType<Display>().AddToScore(dronePts);
+        hud.AddToScore(hitPts);
+        AudioSource.PlayClipAtPoint(droneHitSound, Camera.main.transform.position);
         if (droneHealth <= 0)
         {
-
-            //AudioSource.PlayClipAtPoint(droneExplosionSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(droneExplosionSound, Camera.main.transform.position);
             GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
             vfx.transform.parent = parent;
             Destroy(vfx, deathVFXDuration);
@@ -71,4 +60,20 @@ public class Enemy : MonoBehaviour
             hud.AddToScore(dronePts);
         }
     }
+
+    private void ProcessDeathStarHit()
+    {
+        deathStarHealth--;
+        hud.AddToScore(hitPts);
+        AudioSource.PlayClipAtPoint(deathStarHitSound, Camera.main.transform.position);
+        if (deathStarHealth <= 0)
+        {
+            Instantiate(deathVFX, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(deathStarExplosionSound, Camera.main.transform.position);
+            Destroy(gameObject);
+            hud.AddToScore(deathStarPts);
+        }
+    }
+
+    
 }
