@@ -244,7 +244,7 @@ ParticleSystem:
   m_GameObject: {fileID: 13641694}
   serializedVersion: 7
   lengthInSec: 1.78
-  simulationSpeed: 0.5
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -318,7 +318,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.2
+      scalar: 1.19
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -371,7 +371,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100.04
+      scalar: 344.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5281,9 +5281,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathStarHealth: 20
   droneHealth: 2
-  deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   deathVFXDuration: 1
+  deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   parent: {fileID: 0}
+  droneExplosionSound: {fileID: 0}
+  deathStarExplosionSound: {fileID: 8300000, guid: 34d41335d974fdc4f949c1d029db8e2d, type: 3}
+  droneHitSound: {fileID: 0}
+  deathStarHitSound: {fileID: 8300000, guid: 11d81473c6a124b4a97bc8ae66488214, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,7 +5858,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1235026645}
   serializedVersion: 7
   lengthInSec: 1.78
-  simulationSpeed: 0.5
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5928,7 +5932,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.2
+      scalar: 1.19
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5981,7 +5985,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100.04
+      scalar: 344.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -11050,9 +11054,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathStarHealth: 100
   droneHealth: 2
-  deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   deathVFXDuration: 1
+  deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   parent: {fileID: 0}
+  droneExplosionSound: {fileID: 0}
+  deathStarExplosionSound: {fileID: 8300000, guid: 34d41335d974fdc4f949c1d029db8e2d, type: 3}
+  droneHitSound: {fileID: 0}
+  deathStarHitSound: {fileID: 8300000, guid: 11d81473c6a124b4a97bc8ae66488214, type: 3}
 --- !u!114 &1831085441
 MonoBehaviour:
   m_ObjectHideFlags: 0
