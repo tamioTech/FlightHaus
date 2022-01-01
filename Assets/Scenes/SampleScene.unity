@@ -5192,7 +5192,7 @@ PlayableDirector:
   - key: {fileID: -3806185091033161618, guid: f24e1b11965f54bdba3f1e0db652bd4c, type: 2}
     value: {fileID: 816488930}
   - key: {fileID: 8220763394853231683, guid: f24e1b11965f54bdba3f1e0db652bd4c, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1291403995}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &876700821
@@ -10312,6 +10312,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 385fd49e0403542b7b5d469224d63c7e, type: 3}
+--- !u!1001 &1291403992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1534632375987153611, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156305, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_Name
+      value: Mini Death Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 123.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 303.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979601555898156335, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+--- !u!95 &1291403995 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1979601555898156304, guid: 00790903133d84d29a0b50e20eb65860, type: 3}
+  m_PrefabInstance: {fileID: 1291403992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1541278045
 GameObject:
   m_ObjectHideFlags: 0
@@ -10480,6 +10546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745bb9b6c03e54ff48550cb0c065c6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1600345505}
   score: 0
 --- !u!1 &1622335815
 GameObject:

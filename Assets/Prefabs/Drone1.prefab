@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3485101487455449933}
   - component: {fileID: 3485101487455449934}
   - component: {fileID: 3485101487455449935}
-  - component: {fileID: 3485101487455449936}
   - component: {fileID: 3485101487455449937}
   - component: {fileID: 3485101487455449931}
+  - component: {fileID: 803698238062123486}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Drone
@@ -124,29 +124,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3485101487455449936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3485101487455449939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46be904ecf1ac46948df6d3f1bb413b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathStarHealth: 100
-  droneHealth: 20
-  droneMaxHealth: 20
-  deathVFXDuration: 1
-  deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
-  parent: {fileID: 3485101488511213245}
-  droneExplosionSound: {fileID: 8300000, guid: 34d41335d974fdc4f949c1d029db8e2d, type: 3}
-  deathStarExplosionSound: {fileID: 8300000, guid: a55cd03a41e2eac4992c0fb94f78b01b, type: 3}
-  droneHitSound: {fileID: 8300000, guid: 11d81473c6a124b4a97bc8ae66488214, type: 3}
-  deathStarHitSound: {fileID: 0}
-  hitVFXobj: {fileID: 5970974337334378768, guid: eb3d8493f1e5d4c82acc164b034aea45, type: 3}
 --- !u!136 &3485101487455449937
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -173,6 +150,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff300bf0d2ef14525b55f7d313170081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &803698238062123486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485101487455449939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1329cf4022b47c6853b007a2185820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthMax: 10
+  enemyHealthCurrent: 0
+  deathVFXDuration: 1
+  deathVFX: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
+  hitVFX: {fileID: 5970974337334378768, guid: eb3d8493f1e5d4c82acc164b034aea45, type: 3}
+  parent: {fileID: 3485101488511213245}
+  deathSound: {fileID: 8300000, guid: a55cd03a41e2eac4992c0fb94f78b01b, type: 3}
+  hitSound: {fileID: 8300000, guid: 2d20b6f99e939d84297803f7286fc6da, type: 3}
 --- !u!1 &3485101488511213246
 GameObject:
   m_ObjectHideFlags: 0
