@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +9,13 @@ public class Enemy1 : MonoBehaviour
     [SerializeField] private float enemyHealthCurrent;
     [SerializeField] private float deathVFXDuration = 1.0f;
 
-    [SerializeField] public float deathVolume = 0.75f;
-
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private GameObject hitVFX;
     [SerializeField] private Transform parent;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hitSound;
+    [SerializeField] private float hitVolume = 1.0f;
+    [SerializeField] private float deathVolume = 0.75f;
 
     int ptsHit = 1;
     int ptsKill = 10;
@@ -31,6 +31,10 @@ public class Enemy1 : MonoBehaviour
         mainCameraPos = Camera.main.transform.position;
         display = FindObjectOfType<Display>();
         drone = FindObjectOfType<Drone>();
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+        GetComponent<MeshRenderer>().material.color = Color.cyan;
+        
     }
 
     // Update is called once per frame
@@ -46,18 +50,30 @@ public class Enemy1 : MonoBehaviour
 
     private void ProcessHit()
     {
-        enemyHealthCurrent--;
-        drone.ChangeColor();
-        display.AddToScore(ptsHit);
+        EnemyHit();
 
-        if(enemyHealthCurrent <= 0)
+        if (enemyHealthCurrent <= 0)
         {
-            display.AddToScore(ptsKill);
-            Instantiate(deathVFX, transform.position, Quaternion.identity);
-            AudioSource.PlayClipAtPoint(deathSound, mainCameraPos, deathVolume);
-            Destroy(deathVFX, deathVFXDuration);
-            Destroy(gameObject);
+            EnemyDead();
         }
+    }
+
+    private void EnemyHit()
+    {
+        enemyHealthCurrent--;
+        ChangeColor();
+        display.AddToScore(ptsHit);
+        AudioSource.PlayClipAtPoint(hitSound, mainCameraPos, hitVolume);
+    }
+
+    private void EnemyDead()
+    {
+        AudioSource.PlayClipAtPoint(deathSound, mainCameraPos, deathVolume);
+        display.AddToScore(ptsKill);
+        GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        vfx.transform.parent = parent;
+        Destroy(vfx, deathVFXDuration);
+        Destroy(gameObject);
     }
 
     public float GetEnemyHealthMax()
@@ -68,5 +84,11 @@ public class Enemy1 : MonoBehaviour
     public float GetEnemyHealthCurrent()
     {
         return enemyHealthCurrent;
+    }
+
+    public void ChangeColor()
+    {
+        float percentHealth = enemyHealthCurrent / enemyHealthMax;
+        GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.magenta, Color.cyan, percentHealth);
     }
 }

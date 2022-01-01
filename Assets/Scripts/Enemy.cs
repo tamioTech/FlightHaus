@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip droneHitSound;
     [SerializeField] AudioClip deathStarHitSound;
     [SerializeField] GameObject hitVFXobj;
+    [SerializeField] float droneHitVolume = 1.0f;
 
 
 
@@ -27,8 +28,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-       hud = FindObjectOfType<Display>();
-       mainCamera = Camera.main;
+        hud = FindObjectOfType<Display>();
+        mainCamera = Camera.main;
+        gameObject.AddComponent<Rigidbody>();
        
     }
 
@@ -54,7 +56,7 @@ public class Enemy : MonoBehaviour
     {
         droneHealth--;
         hud.AddToScore(hitPts);
-        AudioSource.PlayClipAtPoint(droneHitSound, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(droneHitSound, Camera.main.transform.position, droneHitVolume);
         HitVFX();
         FindObjectOfType<Drone>().ChangeColor();
         if (droneHealth <= 0)

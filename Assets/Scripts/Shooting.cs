@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] ParticleSystem leftPSys;
     [SerializeField] ParticleSystem rightPSys;
     [SerializeField] AudioClip gunnerSound;
+    [SerializeField] float gunnerSoundVolume = 75.0f;
     [SerializeField] float delayTime = 0.8f;
     [SerializeField] float modulo = 1.0f;
 
@@ -40,18 +41,13 @@ public class Shooting : MonoBehaviour
             print("spacePressed");
             leftPSys.Play();
             rightPSys.Play();
-            //PlayGunnerSound();
+            PlayGunnerSound();
 
         }
     }
 
     private void PlayGunnerSound()
     {
-        float timer = (Time.time % modulo );
-        print(timer);
-        if (timer > delayTime)
-        {
-            AudioSource.PlayClipAtPoint(gunnerSound, Camera.main.transform.position, 0.5f);
-        }
+            AudioSource.PlayClipAtPoint(gunnerSound, Camera.main.transform.position, gunnerSoundVolume);
     }
 }

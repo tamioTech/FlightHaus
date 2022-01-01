@@ -151,8 +151,10 @@ MonoBehaviour:
   enemyHealthMax: 50
   enemyHealthCurrent: 0
   deathVFXDuration: 1
+  deathVolume: 0.75
   deathVFX: {fileID: 1000010823978654, guid: 385fd49e0403542b7b5d469224d63c7e, type: 3}
   hitVFX: {fileID: 5970974337334378768, guid: eb3d8493f1e5d4c82acc164b034aea45, type: 3}
   parent: {fileID: 0}
   deathSound: {fileID: 8300000, guid: db32de92b544c114b9ffba264076a9cb, type: 3}
   hitSound: {fileID: 8300000, guid: 2d20b6f99e939d84297803f7286fc6da, type: 3}
+  hitVolume: 100

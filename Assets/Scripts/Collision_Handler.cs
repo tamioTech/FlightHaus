@@ -6,6 +6,8 @@ public class Collision_Handler : MonoBehaviour
 {
     [SerializeField] GameObject explosionFX;
     [SerializeField] GameObject planeBody;
+    [SerializeField] AudioClip explosionSFX;
+    [SerializeField] float explosionSFXVolume;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class Collision_Handler : MonoBehaviour
     {
         print($"{this.name} collided with {collision.gameObject.name}");
         explosionFX.SetActive(true);
+        AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position, explosionSFXVolume);
         planeBody.SetActive(false); 
         FindObjectOfType<Level_Handler>().ReloadLevel();
     }
