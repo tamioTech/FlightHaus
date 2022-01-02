@@ -62,18 +62,18 @@ public class Enemy1 : MonoBehaviour
 
     private void EnemyHit()
     {
-        enemyHealthCurrent--;
-        ChangeColor();
         display.AddToScore(ptsHit);
         AudioSource.PlayClipAtPoint(hitSound, mainCameraPos, hitVolume);
+        ChangeColor();
+        enemyHealthCurrent--;
     }
 
     private void EnemyDead()
     {
-        AudioSource.PlayClipAtPoint(deathSound, mainCameraPos, deathVolume);
         display.AddToScore(ptsKill);
+        AudioSource.PlayClipAtPoint(deathSound, mainCameraPos, deathVolume);
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameobject.transform;
         Destroy(vfx, deathVFXDuration);
         Destroy(gameObject);
     }
