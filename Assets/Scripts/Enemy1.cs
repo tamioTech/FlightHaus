@@ -16,7 +16,7 @@ public class Enemy1 : MonoBehaviour
 
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private GameObject hitVFX;
-    [SerializeField] private Transform parent;
+    //[SerializeField] private Transform parent;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hitSound;
 
