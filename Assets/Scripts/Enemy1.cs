@@ -5,35 +5,37 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
+    [SerializeField] private int ptsHit = 1;
+    [SerializeField] private int ptsKill = 10;
+
     [SerializeField] private float enemyHealthMax = 10.0f;
     [SerializeField] private float enemyHealthCurrent;
     [SerializeField] private float deathVFXDuration = 1.0f;
+    [SerializeField] private float hitVolume = 1.0f;
+    [SerializeField] private float deathVolume = 0.75f;
 
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private GameObject hitVFX;
     [SerializeField] private Transform parent;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hitSound;
-    [SerializeField] private float hitVolume = 1.0f;
-    [SerializeField] private float deathVolume = 0.75f;
 
-    int ptsHit = 1;
-    int ptsKill = 10;
 
     Vector3 mainCameraPos;
     Display display;
     Drone drone;
+    GameObject parentGameobject;
 
     
     void Start()
     {
-        enemyHealthCurrent = enemyHealthMax;
-        mainCameraPos = Camera.main.transform.position;
-        display = FindObjectOfType<Display>();
-        drone = FindObjectOfType<Drone>();
-        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
-        rb.useGravity = false;
-        GetComponent<MeshRenderer>().material.color = Color.cyan;
+        enemyHealthCurrent = enemyHealthMax;                            //health
+        mainCameraPos = Camera.main.transform.position;                 //main camera position
+        display = FindObjectOfType<Display>();                          //score display
+        parentGameobject = GameObject.FindWithTag("SpawnAtRuntime");    //parent gameobject
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();            //rigid body
+        rb.useGravity = false;                                          //rigid body no gravity
+        GetComponent<MeshRenderer>().material.color = Color.cyan;       //change color
         
     }
 

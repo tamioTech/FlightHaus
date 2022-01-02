@@ -8,6 +8,7 @@ TagManager:
   - DeathStar
   - Drone
   - Drones
+  - SpawnAtRuntime
   layers:
   - Default
   - TransparentFX

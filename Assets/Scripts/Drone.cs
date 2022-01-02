@@ -19,7 +19,7 @@ public class Drone : MonoBehaviour
     {
         float enemyHealthMax = FindObjectOfType<Enemy1>().GetEnemyHealthMax();
         float enemyHealthCurrent = FindObjectOfType<Enemy1>().GetEnemyHealthCurrent();
-        float percentHealth =   enemyHealthCurrent / enemyHealthMax;
+        float percentHealth = enemyHealthCurrent / enemyHealthMax;
         GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.red, Color.green, percentHealth);
     }
 
