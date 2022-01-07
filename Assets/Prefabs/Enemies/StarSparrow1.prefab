@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 1367980412201605712}
   - component: {fileID: 1359470573229486492}
   - component: {fileID: 3817750323241795237}
+  - component: {fileID: -1724809387520292097}
   m_Layer: 0
   m_Name: StarSparrow1
   m_TagString: Untagged
@@ -144,12 +145,25 @@ MonoBehaviour:
   enemyHealthMax: 1
   enemyHealthCurrent: 0
   deathVFXDuration: 1
-  hitVolume: 1
-  deathVolume: 0.75
+  hitVolume: 100
+  deathVolume: 100
   deathVFX: {fileID: 1000010823978654, guid: 385fd49e0403542b7b5d469224d63c7e, type: 3}
   hitVFX: {fileID: 5970974337334378768, guid: eb3d8493f1e5d4c82acc164b034aea45, type: 3}
   deathSound: {fileID: 8300000, guid: 34d41335d974fdc4f949c1d029db8e2d, type: 3}
   hitSound: {fileID: 8300000, guid: 38b0813a3ac216e409eb38df888caa80, type: 3}
+--- !u!65 &-1724809387520292097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336608499809261102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.638825, y: 3.256053, z: 10.850526}
+  m_Center: {x: 0, y: -0.0000007748604, z: 0}
 --- !u!1 &1336776739343559330
 GameObject:
   m_ObjectHideFlags: 0
